@@ -1,3 +1,6 @@
+import fetch from 'node-fetch';
+globalThis.fetch = fetch;
+
 import Parser from 'rss-parser';
 
 const parser = new Parser();
@@ -6,8 +9,8 @@ export default async function handler(req, res) {
   try {
     const feeds = await Promise.all([
       parser.parseURL('https://feeds.npr.org/1001/rss.xml'),
-      parser.parseURL('https://apnews.com/rss'),
-      parser.parseURL('https://www.reutersagency.com/feed/?best-topics=politics')
+      parser.parseURL('https://www.npr.org/rss/rss.php?id=1014'),
+      parser.parseURL('https://apnews.com/rss')
     ]);
 
     const allArticles = feeds.flatMap(feed =>
