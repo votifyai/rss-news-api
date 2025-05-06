@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "rss-parser": "^3.12.0"
+    "rss-parser": "^3.12.0",
+    "node-fetch": "^3.3.1"
   }
 }
 
